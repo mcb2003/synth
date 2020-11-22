@@ -9,7 +9,7 @@ impl Default for OscSettings {
         Self {
             sample_rate: 44_100.0,
             frequency: 440.0,
-            amplitude: 1.0,
+            amplitude: 0.5,
         }
     }
 }
