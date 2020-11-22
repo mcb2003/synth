@@ -1,3 +1,4 @@
+#[derive(Debug)]
 pub struct OscSettings {
     pub sample_rate: f32,
     pub frequency: f32,
