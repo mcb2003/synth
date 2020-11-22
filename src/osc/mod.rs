@@ -1,3 +1,5 @@
+mod error;
+pub use error::Error;
 mod settings;
 pub use settings::OscSettings;
 
@@ -7,6 +9,8 @@ mod triangle;
 pub use triangle::TriangleOsc;
 mod saw;
 pub use saw::SawOsc;
+mod pulse;
+pub use pulse::PulseOsc;
 
 pub trait Osc {
     fn next_sample(&mut self) -> f32;
