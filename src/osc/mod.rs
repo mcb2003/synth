@@ -1,5 +1,7 @@
 mod sine;
 pub use sine::SineOsc;
+mod triangle;
+pub use triangle::TriangleOsc;
 
 pub trait Osc {
     fn next_sample(&mut self) -> f32;
