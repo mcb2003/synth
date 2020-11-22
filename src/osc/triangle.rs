@@ -2,6 +2,7 @@ use std::f32::consts::PI;
 
 use super::{Osc, OscSettings};
 
+#[derive(Default)]
 pub struct TriangleOsc {
     sample: u64,
     settings: OscSettings,
