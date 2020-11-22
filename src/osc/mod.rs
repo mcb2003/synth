@@ -1,3 +1,6 @@
+mod settings;
+pub use settings::OscSettings;
+
 mod sine;
 pub use sine::SineOsc;
 mod triangle;

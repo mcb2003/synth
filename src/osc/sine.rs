@@ -1,26 +1,24 @@
 use std::f32::consts::PI;
 
-use super::Osc;
+use super::{Osc, OscSettings};
 
 pub struct SineOsc {
     sample: u64,
-    sample_rate: f32,
-    frequency: f32,
-    amplitude: f32,
+    settings: OscSettings,
 }
 
 impl SineOsc {
-    pub fn new(sample_rate: f32, frequency: f32, amplitude: f32) -> Self {
+    pub fn new(settings: OscSettings) -> Self {
         Self {
             sample: 0,
-            sample_rate, frequency, amplitude
+            settings,
         }
     }
 }
 
 impl Osc for SineOsc {
     fn next_sample(&mut self) -> f32 {
-        let sample = self.amplitude * (2.0 * PI * self.frequency * (self.sample as f32 / self.sample_rate)).sin();
+        let sample = self.settings.amplitude * (2.0 * PI * self.settings.frequency * (self.sample as f32 / self.settings.sample_rate)).sin();
         self.sample += 1;
         sample
     }
@@ -30,6 +28,6 @@ impl Osc for SineOsc {
     }
 
     fn cycle(&self) -> Option<u64> {
-        Some((self.sample as f32 / self.frequency) as u64)
+        Some((self.sample as f32 / self.settings.frequency) as u64)
     }
 }
