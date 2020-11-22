@@ -1,3 +1,6 @@
+mod sine;
+pub use sine::SineOsc;
+
 pub trait Osc {
     fn next_sample(&mut self) -> f32;
     fn sample(&self) -> u64;
