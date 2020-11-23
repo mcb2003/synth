@@ -19,7 +19,12 @@ impl SineOsc {
 
 impl Osc for SineOsc {
     fn next_sample(&mut self) -> f32 {
-        let sample = self.settings.amplitude * (2.0 * PI * self.settings.frequency * (self.sample as f32 / self.settings.sample_rate)).sin();
+        let sample = self.settings.amplitude
+            * (2.0
+                * PI
+                * self.settings.frequency
+                * (self.sample as f32 / self.settings.sample_rate))
+                .sin();
         self.sample += 1;
         sample
     }

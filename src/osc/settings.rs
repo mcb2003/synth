@@ -19,7 +19,9 @@ impl OscSettings {
             return Err(Error::InvalidAmplitude(amplitude));
         }
         Ok(Self {
-            sample_rate, frequency, amplitude,
+            sample_rate,
+            frequency,
+            amplitude,
         })
     }
 }

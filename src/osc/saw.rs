@@ -18,7 +18,12 @@ impl SawOsc {
 impl Osc for SawOsc {
     fn next_sample(&mut self) -> f32 {
         let time = self.sample as f32 / self.settings.sample_rate;
-        let sample = 2.0 * self.settings.amplitude * time.mul_add(self.settings.frequency, -time.mul_add(self.settings.frequency, 0.5).floor());
+        let sample = 2.0
+            * self.settings.amplitude
+            * time.mul_add(
+                self.settings.frequency,
+                -time.mul_add(self.settings.frequency, 0.5).floor(),
+            );
         self.sample += 1;
         sample
     }

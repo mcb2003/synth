@@ -19,7 +19,13 @@ impl TriangleOsc {
 
 impl Osc for TriangleOsc {
     fn next_sample(&mut self) -> f32 {
-        let sample = ((2.0 * self.settings.amplitude) / PI) * (2.0 * PI * self.settings.frequency * (self.sample as f32 / self.settings.sample_rate)).sin().asin();
+        let sample = ((2.0 * self.settings.amplitude) / PI)
+            * (2.0
+                * PI
+                * self.settings.frequency
+                * (self.sample as f32 / self.settings.sample_rate))
+                .sin()
+                .asin();
         self.sample += 1;
         sample
     }
